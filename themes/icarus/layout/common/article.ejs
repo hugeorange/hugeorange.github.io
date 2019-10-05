@@ -95,7 +95,10 @@
             </div>
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="<%- url_for(post.path) %>#more"><%= __('article.more') %></a>
+                    <a class="button is-size-7 is-light" href="<%- url_for(post.path) %>#more">
+                        <i class="fas fa-book-reader has-text-grey"></i>
+                        &nbsp;&nbsp;<%= __('article.more') %>
+                    </a>
                 </div>
             </div>
         </div>
