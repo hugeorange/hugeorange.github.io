@@ -56,6 +56,8 @@ body, button, input, select, textarea
 .card
     border-radius: 4px
     box-shadow: 0 4px 10px rgba(0,0,0,0.05), 0 0 1px rgba(0,0,0,0.1)
+    &:hover
+
     & + .card,
     & + .column-right-shadow
         margin-top: 1.5rem
@@ -140,6 +142,8 @@ img.thumbnail
 .post-navigation
     justify-content: space-around
     .level-item
+    &:hover
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.1)
         margin-bottom: 0
 
 .timeline
@@ -464,3 +468,17 @@ figure.highlight
             border: none
     .file
         all: initial
+
+.article .title {
+    margin: 0 0 0.5rem -0.1rem;
+}
+.article .article-meta {
+    margin-bottom: 1.5rem !important;
+}
+.article {counter-reset:section}
+.article h2{counter-reset:sub-section}
+.article h3{counter-reset:composite}
+.article h4{counter-reset:detail}
+.article h2:before{content:counter(section) " ";counter-increment:section}
+.article h3:before{content:counter(section) "." counter(sub-section) " ";counter-increment:sub-section}
+.article h4:before{content:counter(section) "." counter(sub-section) "." counter(composite) " ";counter-increment:composite}
