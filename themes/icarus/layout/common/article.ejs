@@ -8,11 +8,15 @@
     </div>
     <% } %>
     <div class="card-content article <%= post.hasOwnProperty('direction') ? post.direction : '' %>">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+        <h1 class="title is-size-4 has-text-weight-normal">
             <% if (index) { %>
-                <a class="has-link-black-ter" href="<%- url_for(post.link ? post.link : post.path) %>"><i class="fas fa-angle-double-right"></i><%= post.title %></a>
+                <a class="has-link-black-ter" href="<%- url_for(post.link ? post.link : post.path) %>">
+                    <!-- <i class="fas fa-angle-double-right"></i> -->
+                    <%= post.title %>
+                </a>
             <% } else { %>
-                <i class="fas fa-angle-double-right"></i><%= post.title %>
+                <!-- <i class="fas fa-angle-double-right"></i><%= post.title %> -->
+                <%= post.title %>
             <% } %>
         </h1>
         <% if (post.layout != 'page') { %>
@@ -49,13 +53,13 @@
             </div>
         </div>
         <% } %>
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             <% if (index) { %>
                 <a class="has-link-black-ter" href="<%- url_for(post.link ? post.link : post.path) %>"><%= post.title %></a>
             <% } else { %>
                 <%= post.title %>
             <% } %>
-        </h1>
+        </h1> -->
         <div class="content">
             <%- index && post.excerpt ? post.excerpt : post.content %>
         </div>
