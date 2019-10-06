@@ -25,7 +25,7 @@ More info: [Writing](https://hexo.io/docs/writing.html)
 
 ### Run server
 
-``` bash
+``` html /blog/index.html Tyrion Yu tyrionyu-blog
 $ hexo server
 ```
 

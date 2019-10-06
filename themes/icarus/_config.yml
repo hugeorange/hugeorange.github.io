@@ -51,14 +51,14 @@ footer:
 # Article display settings
 article:
     # Code highlight settings
-    highlight:
-        # Code highlight themes
-        # https://github.com/highlightjs/highlight.js/tree/master/src/styles
+    highlight: 
+    # Code highlight themes
+    # https://github.com/highlightjs/highlight.js/tree/master/src/styles
         theme: atom-one-dark
         # Show code copying button
-        clipboard: false
+        clipboard: true
         # Default folding status of the code blocks. Can be "", "folded", "unfolded"
-        fold: ""
+        fold: "unfolded"
     # Whether to show article thumbnail images
     thumbnail: true
     # Whether to show estimate article reading time
@@ -72,7 +72,12 @@ search:
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment
 comment:
     # Name of the comment plugin
-    type: 
+    type: gitment
+    owner: hugeorange         # (required) GitHub user name
+    repo: hugeorange.github.io          # (required) GitHub repository name
+    client_id: e966f4d67d8699dedd08 # (required) OAuth application client id
+    client_secret: 7e4deaa079c3c0992cb90cf17dd9a26bb08d17d9 # (required) OAuth application client secret
+
 # Donation entries
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Donation/
 # donate:
@@ -209,7 +214,7 @@ plugins:
     progressbar: true
     # BuSuanZi site/page view counter
     # https://busuanzi.ibruce.info
-    busuanzi: false
+    busuanzi: true
 # CDN provider settings
 # https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
 providers:
