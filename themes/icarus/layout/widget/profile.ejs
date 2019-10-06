@@ -70,7 +70,7 @@
             </div>
         </nav>
         <% if (widget.follow_link) { %>
-        <div class="level">
+        <div class="">
             <a class="level-item button is-link is-rounded" href="<%= url_for(widget.follow_link) %>" target="_blank">
                 <%= __('widget.follow') %></a>
         </div>
@@ -80,15 +80,15 @@
         <div class="level is-mobile">
             <% for (let name in socialLinks) {
                     let link = socialLinks[name]; %>
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="<%= name %>" href="<%= url_for(typeof(link) === 'string' ? link : link.url) %>">
-                <%= name %>
+            <!-- <a class="level-item button is-white is-marginless" target="_blank" -->
+                <!-- title="<%= name %>" href="<%= url_for(typeof(link) === 'string' ? link : link.url) %>"> -->
+                <!-- <%= name %> -->
                 <!-- <% if (typeof(link) === 'string') { %>
                 <%= name %>
                 <% } else { %>
                 <i class="<%= link.icon %>"></i>
                 <% } %> -->
-            </a>
+            <!-- </a> -->
             <% } %>
         </div>
         <% } %>
