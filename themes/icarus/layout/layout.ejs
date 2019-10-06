@@ -21,8 +21,9 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column <%= main_column_class() %> has-order-2 column-main"><%- body %></div>
                 <%- _partial('common/widget', { position: 'left' }) %>
+                <div class="column <%= main_column_class() %> has-order-2 column-main"><%- body %></div>
+                
                 <%- _partial('common/widget', { position: 'right' }) %>
             </div>
         </div>
