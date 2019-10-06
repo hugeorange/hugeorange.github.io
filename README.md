@@ -15,6 +15,7 @@
 - 文章格式文档
 - [x] 页脚网站运行时间
 - [x] 代码高亮显示文件名称，md 书写时注意事项
+- [ ] 更换到自己的域名
 - 网站美化-参考网站
     * [alphalxy](https://www.alphalxy.com/2019/03/customize-icarus/#more)
     * [xxs](https://verbf.github.io/post/deeplearning-ai-4-week-4/)
