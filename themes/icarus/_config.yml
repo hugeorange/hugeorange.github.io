@@ -120,7 +120,7 @@ widgets:
         # Where should the widget be placed, left or right
         position: left
         # Author name to be shown in the profile widget
-        author: 大桔子(^_^)
+        author: 大桔子
         # Title of the author to be shown in the profile widget
         # author_title: Your title
         # Author's current location to be shown in the profile widget
