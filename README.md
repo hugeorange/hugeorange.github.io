@@ -20,3 +20,6 @@
     * [xxs](https://verbf.github.io/post/deeplearning-ai-4-week-4/)
     * [yearito](http://yearito.cn/about/)
     * [知乎讨论](https://www.zhihu.com/question/24422335/answer/667475744)
+
+##### 需要思考的地方
+- 不可分类，标签怎么安排

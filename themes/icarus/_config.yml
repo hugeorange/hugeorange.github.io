@@ -30,6 +30,7 @@ navbar:
         分类: /categories
         标签: /tags
         关于: /about
+        小工具: /tool
     # Navigation bar links to be shown on the right
     links:
         Download on GitHub:
