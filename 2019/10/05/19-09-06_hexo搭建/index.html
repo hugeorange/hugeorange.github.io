@@ -163,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1051 个字)
+                    7 分钟 读完 (大约 1092 个字)
                 </span>
                 
                 
@@ -214,6 +214,9 @@
 <li>小工具页面我不想要侧边 <code>widget</code> 了，初始时想着能在 <code>tool.ejs</code> 这个页面里做些处理就ok，但事实并非我想的这么简单，hexo用的是 <code>ejs</code> 模板，入口是 <code>layout.ejs</code>，不知道为什么我在这个文件里拿不到 <code>generator/tool.js</code>里面的声明的变量，但是可以拿到当前路径的 <code>path</code> 变量，由于对 hexo 和 ejs 都不怎么了解，所以采取了以下硬编码的临时方案，以后再进行优化  <figure class="highlight html hljs"><figcaption><span>layout/layout.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"columns"</span>&gt;</span></span><br><span class="line">            <span class="hljs-comment">&lt;!-- 此处硬编码，来判断是否需要全屏，不了解 hexo 机制，不熟悉ejs模板，后期有机会优化吧 --&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> <span class="hljs-attr">if</span> (<span class="hljs-attr">path</span> !== <span class="hljs-string">'tool/index.html'</span>) &#123; %&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column &lt;%= main_column_class() %&gt; has-order-2 column-main"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">body</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">_partial</span>('<span class="hljs-attr">common</span>/<span class="hljs-attr">widget</span>', &#123; <span class="hljs-attr">position:</span> '<span class="hljs-attr">left</span>' &#125;) %&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">_partial</span>('<span class="hljs-attr">common</span>/<span class="hljs-attr">widget</span>', &#123; <span class="hljs-attr">position:</span> '<span class="hljs-attr">right</span>' &#125;) %&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> &#125; <span class="hljs-attr">else</span> &#123; %&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column column-main"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">body</span> %&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">path</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> &#125; %&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
+</ul>
+<h3 id="hexo-相关的命令"><a href="#hexo-相关的命令" class="headerlink" title="hexo 相关的命令"></a>hexo 相关的命令</h3><ul>
+<li>每次 <code>hexo deploy</code> 的时候github的 repo 的master的提交历史都会被重写，这里有一个<a href="https://qiwihui.com/qiwihui-blog-50/" target="_blank" rel="noopener">解释</a>  </li>
 </ul>
 <h3 id="主题魔改-参考"><a href="#主题魔改-参考" class="headerlink" title="主题魔改-参考"></a>主题魔改-参考</h3><ul>
 <li><a href="https://www.alphalxy.com/2019/03/customize-icarus/#more" target="_blank" rel="noopener">alphalxy</a></li>
@@ -399,8 +402,12 @@
         <span class="has-mr-6">3</span>
         <span>Icarus 增加两个菜单-关于、工具</span>
         </a></li><li>
-        <a class="is-flex" href="#主题魔改-参考">
+        <a class="is-flex" href="#hexo-相关的命令">
         <span class="has-mr-6">4</span>
+        <span>hexo 相关的命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#主题魔改-参考">
+        <span class="has-mr-6">5</span>
         <span>主题魔改-参考</span>
         </a></li></ul>
         </div>
