@@ -7,8 +7,9 @@
 - 源代码放在 `blog` 分支，编译后代码部署在 `master`分支
 
 ##### 功能
-- [x] 统计 uv、pv [不蒜子](http://ibruce.info/2015/04/04/busuanzi/)
+- [x] 统计 uv、pv [不蒜子](http://ibruce.info/2015/04/04/busuanzi/) -- 统计uv不准确
 - 关于我（新增页面）依次在 `scipts/index.js layout/xxx.ejs include/generate/xxx.js` 增加相应的项
+- [ ] 增加小工具页面-tool，以后可以放一些小工具，比如：图片压缩，单位转换函数之类的
 - [x] 评论插件 [gitment借助issue](https://imsun.net/posts/gitment-introduction/)
 - [x] 头像、favicon 更换
 - [x] 页脚网站运行时间
