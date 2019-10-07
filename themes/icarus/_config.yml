@@ -187,13 +187,14 @@ plugins:
     animejs: true
     # Enable the lightGallery and Justified Gallery plugins
     # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/gallery-plugin/
-    gallery: true
+    # 图片蒙版插件
+    gallery: false
     # Enable the Outdated Browser plugin
     # http://outdatedbrowser.com/
-    outdated-browser: true
+    outdated-browser: false
     # Enable the MathJax plugin
     # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/mathjax-plugin/
-    mathjax: true
+    mathjax: false
     # Show the back to top button on mobile devices
     back-to-top: true
     # Google Analytics plugin settings
