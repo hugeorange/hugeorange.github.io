@@ -19,7 +19,7 @@
 <meta property="og:description" content="hexo 博客搭建 Icarus 主题自定义修改">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://hugeorange.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-10-06T16:00:00.000Z">
+<meta property="og:updated_time" content="2019-10-07T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo &amp; Icarus 博客搭建总结">
 <meta name="twitter:description" content="hexo 博客搭建 Icarus 主题自定义修改">
@@ -37,7 +37,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/xcode.css">
 
 
     
@@ -152,7 +152,7 @@
                 <!-- <time class="level-item has-text-grey" datetime="2019-10-04T16:00:00.000Z">2019-10-05</time> -->
                 <time class="level-item has-text-grey" datetime="2019-10-04T16:00:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-10-05</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-10-06T16:00:00.000Z"><i class="far fa-calendar-check">&nbsp;</i>2019-10-07</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-10-07T16:00:00.000Z"><i class="far fa-calendar-check">&nbsp;</i>2019-10-08</time>
                 
                 
                 <div class="level-item">
@@ -163,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1092 个字)
+                    8 分钟 读完 (大约 1199 个字)
                 </span>
                 
                 
@@ -204,6 +204,7 @@
 <ul>
 <li>使用过程中发现一个问题，当当前文章没有评论数据，会返回一个 <code>Error: Comments Not Initialized</code>，或者显示一个<code>Initialize Comments</code>的按钮，翻了一下该项目的issue暂时未找到原因</li>
 <li>另外在 <code>火狐 safari</code> 会报跨域问题 <code>已拦截跨源请求：同源策略禁止读取位于 https://gh-oauth.imsun.net/ 的远程资源。（原因：CORS 请求未能成功）。[详细了解]</code>，<code>chrome</code>是好的， 因为 github 的服务不允许跨域访问，所以作者搞了一个简单的代理服务，目前还不清楚是什么问题，<a href="https://github.com/imsun/gitment#why-does-gitment-send-a-request-to-gh-oauthimsunnet" target="_blank" rel="noopener">gh-oauth.imsun.net代理服务</a></li>
+<li><code>10-08 日更新：</code>今天看到 gitment仓库的里面的<a href="https://github.com/imsun/gitment/issues/102" target="_blank" rel="noopener">issue</a> 原来是作者用来做跨域的认证服务证书到期了（奇怪的是这个服务偶尔好偶尔坏），按照 issue 里面的说法，将 js、css 文件替换掉了，然后访问发现使用了一个叫做 <code>HeroKu</code> 的免费云服务替代了作者的服务</li>
 </ul>
 </li>
 <li><p>魔改底部增加网站运行时间功能 <a href="https://github.com/hugeorange/hugeorange.github.io/blob/blog/themes/icarus/layout/common/footer.ejs" target="_blank" rel="noopener">代码地址</a></p>
@@ -223,7 +224,7 @@
 <li><a href="https://verbf.github.io/post/deeplearning-ai-4-week-4/" target="_blank" rel="noopener">xxs</a></li>
 <li><a href="http://yearito.cn/about/" target="_blank" rel="noopener">yearito</a></li>
 <li><a href="https://www.zhihu.com/question/24422335/answer/667475744" target="_blank" rel="noopener">知乎讨论</a></li>
-<li><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">官方文档-写作</a>、 <a href="http://yearito.cn/posts/hexo-writing-skills.html" target="_blank" rel="noopener">yearito-写作</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">官方文档-写作</a>、 <a href="http://yearito.cn/posts/hexo-writing-skills.html" target="_blank" rel="noopener">yearito-写作</a> –</li>
 </ul>
 
         </div>
@@ -255,8 +256,14 @@
         <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <div id="comment-container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<!-- 
+	作者的跨域服务器好像失效了，
+	https://github.com/imsun/gitment/issues/102
+-->
+<!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"> -->
+<!-- <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css"/>
+<script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
 <script>
 	const myTheme = {
 		render(state, instance) {
@@ -293,94 +300,6 @@
 
 
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="DJZ">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        DJZ
-                    </p>
-                    
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey" style="margin-top: 10px;">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>上海</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="profile-wrap level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <a href="/archives">
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        1
-                    </p>
-                </a>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <a href="/categories">
-                    <p class="heading">
-                        分类
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        2
-                    </p>
-                </a>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <a href="/tags">
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        1
-                    </p>
-                </a>
-            </div>
-        </nav>
-        
-        <div class="">
-            <a class="level-item button is-link is-rounded" href="https://github.com/hugeorange" target="_blank">
-                关注我</a>
-        </div>
-        
-        
-        
-        <div class="level is-mobile">
-            
-            <!-- <a class="level-item button is-white is-marginless" target="_blank" -->
-                <!-- title="Github" href="https://github.com/ppoffice"> -->
-                <!-- Github -->
-                <!-- 
-                <i class="fab fa-github"></i>
-                 -->
-            <!-- </a> -->
-            
-            <!-- <a class="level-item button is-white is-marginless" target="_blank" -->
-                <!-- title="SF" href="https://segmentfault.com/u/djz"> -->
-                <!-- SF -->
-                <!-- 
-                <i class="fa fa-github"></i>
-                 -->
-            <!-- </a> -->
-            
-        </div>
-        
-    </div>
-</div>
     
         
 <div class="card widget column-left is-sticky" id="toc">
