@@ -13,5 +13,6 @@
 - [ ] gitment、不蒜子 插件的观察或者找到更好的替代品
 - [ ] 更换到自己的域名
 - [ ] github 屏蔽了百度的爬虫，[尝试把静态page部署到 coding page](https://blog.csdn.net/qq_36759224/article/details/100899489)
+- [ ] 每次修改 `themes/includes` 下面的js文件，node服务并不会重启，不知什么原因，很难受
 ##### 需要思考的地方
 - 分类，标签怎么安排，才能更好的管理文章

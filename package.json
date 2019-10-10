@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "hexo clean && hexo generate && hexo server",
+    "start": "hexo server -l",
     "build": "hexo generate",
     "new": "hexo new",
     "deploy": "hexo clean && hexo generate && hexo deploy"
@@ -20,7 +20,7 @@
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^0.3.3",
-    "hexo-server": "^0.3.3"
+    "hexo-server": "^1.0.0"
   },
   "devDependencies": {
     "hexo-deployer-git": "^2.0.0"
