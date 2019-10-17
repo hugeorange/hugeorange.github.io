@@ -79,5 +79,8 @@ theme: icarus
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/hugeorange/hugeorange.github.io
+  # repo: https://github.com/hugeorange/hugeorange.github.io
+  repository:
+    github: https://github.com/hugeorange/hugeorange.github.io
+    coding: https://git.dev.tencent.com/djz6/djz6.git
   branch: master
