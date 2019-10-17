@@ -539,6 +539,9 @@ figure.highlight .section {
 .card-content {
   margin-bottom: 10px;
 }
+.profile-wrap.level {
+  margin-bottom: 0;
+}
 .profile-wrap .level-item a {
   color: #363636;
 }
