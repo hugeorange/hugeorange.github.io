@@ -83,4 +83,4 @@ deploy:
   repository:
     github: https://github.com/hugeorange/hugeorange.github.io
     coding: https://git.dev.tencent.com/djz6/djz6.git
-  branch: master
+  branch: deploy
