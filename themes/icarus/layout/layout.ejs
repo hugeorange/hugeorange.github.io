@@ -23,12 +23,12 @@
         <div class="container">
             <div class="columns">
                 <!-- 此处硬编码，来判断是否需要全屏，不了解 hexo 机制，不熟悉ejs模板，后期有机会优化吧 -->
-                <% if (path !== 'tool/index.html') { %>
+                <% if (path !== 'tool/index.html' && path !== 'about/index.html') { %>
                     <div class="column <%= main_column_class() %> has-order-2 column-main"><%- body %></div>
                     <%- _partial('common/widget', { position: 'left' }) %>
                     <%- _partial('common/widget', { position: 'right' }) %>
                 <% } else { %>
-                    <div class="column column-main"><%- body %> <%- path %></div>
+                    <div class="column column-main"><%- body %></div>
                 <% } %>
             </div>
         </div>
