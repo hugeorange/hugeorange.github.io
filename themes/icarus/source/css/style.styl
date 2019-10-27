@@ -33,7 +33,7 @@ body, button, input, select, textarea
 
 @media screen and (max-width: screen-tablet - 1)
     .section
-        padding: 1.5rem 1rem
+        padding: 0
 
 @media screen and (min-width: screen-tablet)
     .column-main,
@@ -534,6 +534,13 @@ figure.highlight
 // .article h3:before{content:counter(section) "." counter(sub-section) " ";counter-increment:sub-section}
 // .article h4:before{content:counter(section) "." counter(sub-section) "." counter(composite) " ";counter-increment:composite}
 
+@media screen and (max-width: screen-tablet - 1)
+    .columns
+        margin: 0;
+    .column 
+        padding: 0;
+
+
 .profile-wrap 
     &.level 
         margin-bottom: 0
@@ -547,4 +554,5 @@ figure.highlight
             color: #0a0a0a;
 
 .is-size-3
-    font-size: 1.6rem !important;
+    font-size: 1.5rem !important;
+
