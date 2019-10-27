@@ -33,7 +33,7 @@ textarea {
 }
 @media screen and (max-width: 768px) {
   .section {
-    padding: 1.5rem 1rem;
+    padding: 0;
   }
 }
 @media screen and (min-width: 769px) {
@@ -542,6 +542,14 @@ figure.highlight .section {
 .card-content {
   margin-bottom: 10px;
 }
+@media screen and (max-width: 768px) {
+  .columns {
+    margin: 0;
+  }
+  .column {
+    padding: 0;
+  }
+}
 .profile-wrap.level {
   margin-bottom: 0;
 }
@@ -555,7 +563,7 @@ figure.highlight .section {
   color: #0a0a0a;
 }
 .is-size-3 {
-  font-size: 1.6rem !important;
+  font-size: 1.5rem !important;
 }
 @-moz-keyframes iconAnimate {
   0%, 100% {
