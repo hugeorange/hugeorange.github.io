@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>移动端局部滚动、标题吸顶、监听滚动 - 杨柳青青</title>
+
+
+    <meta name="description" content="移动端局部滚动、吸顶、监听滚动距离">
+<meta name="keywords" content="移动端局部滚动,局部滚动 + 吸顶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端局部滚动、标题吸顶、监听滚动">
+<meta property="og:url" content="https://hugeorange.github.io/2019/10/05/19-10-27_移动端局部滚动/index.html">
+<meta property="og:site_name" content="杨柳青青">
+<meta property="og:description" content="移动端局部滚动、吸顶、监听滚动距离">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://hugeorange.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-10-16T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端局部滚动、标题吸顶、监听滚动">
+<meta name="twitter:description" content="移动端局部滚动、吸顶、监听滚动距离">
+<meta name="twitter:image" content="https://hugeorange.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/xcode.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+    
+    
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-2-column"> -->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <!-- <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="移动端局部滚动、标题吸顶、监听滚动" height="28">
+            
+            </a>
+        </div> -->
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+                <a class="navbar-item"
+                href="/tool">小工具</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/hugeorange">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <!-- 此处硬编码，来判断是否需要全屏，不了解 hexo 机制，不熟悉ejs模板，后期有机会优化吧 -->
+                
+                    <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal ">
+            
+                <!-- <i class="fas fa-angle-double-right"></i>移动端局部滚动、标题吸顶、监听滚动 -->
+                移动端局部滚动、标题吸顶、监听滚动
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2019-10-04T16:00:00.000Z">2019-10-05</time> -->
+                <time class="level-item has-text-grey" datetime="2019-10-04T16:00:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-10-05</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-10-16T16:00:00.000Z"><i class="far fa-calendar-check">&nbsp;</i>2019-10-17</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/技术/">技术</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/技术/移动端/">移动端</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 880 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                移动端局部滚动、标题吸顶、监听滚动
+            
+        </h1> -->
+        <div class="content">
+            <blockquote>
+<p>一直以来我的脑子里有一种执念(大约是2016年开始的)，就是移动端无法做局部滚动，即对一个 div 设置 <code>overflow: scroll</code> 是无法滚动，所以才有了像 iScroll 、 Better-scroll 这样的库，但现在已经是 9012 年了，我发现移动端局部 滚动已经支持的很好了</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="问题介绍"><a href="#问题介绍" class="headerlink" title="问题介绍"></a>问题介绍</h2><p>最近碰到一个这样的需求，如下图所示：一个列表左侧边栏固定，右边内容部分可以滚动，同时上测标题栏可以吸顶<br><img src="http://img.code-sky.cn/1572156980135.jpg" width="250px"></p>
+<h4 id="想法："><a href="#想法：" class="headerlink" title="想法："></a>想法：</h4><ul>
+<li>将整个区块分为上下两部分，上侧可以在吸顶的时候做 fixed 处理，然后每个区块再分为左右两部分，用 flex 布局，左侧固定宽度，右侧<code>flex: 1</code>占据剩余宽度。</li>
+<li>右侧滚动区域可以用<code>better-scroll</code>做滚动处理，然后由于吸顶部分和内容分开，所以需要实例化两个<code>BScroll</code>实例。然后当任意一个实例滚动时需要监听其<code>scroll</code>事件，让另一个实例也滚动到 相应的<code>scrollLeft</code>位置，在ios、安卓浏览器上都可以很完美的运行。但由于我们是hybird开发模式，拿到native上运行就有问题了（如图所示，我们的页面是嵌在<code>新闻、赛程、球员、数据...</code>下的，每个tab就是一个webview，tab之间支持手势左滑右滑，这个时候用better-scroll滚动时，就会触发<code>native的slider事件</code>，tab就被切换掉了，导致内容无法被滑动查看，后期找native开发人员请教下是怎么处理slider事件的）</li>
+</ul>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><ul>
+<li>用原生<code>scroll</code>滚动 ，右侧元素设置<code>overflow: scroll; -webkit-overflow-scrolling: touch; (ios惯性滚动)</code>，然后监听<code>wrap</code>的scroll事件</li>
+<li>ios： 体验完美，在wrap范围内滚动不会触发<code>native slide</code>事件，并且有很好的边界回弹效果，出现滚动条，</li>
+<li>安卓：滚动也很流畅，但没有边界回弹效果并且当滚动到某一侧边界时依旧会触发<code>native slide</code>事件，不会出现滚动条</li>
+</ul>
+<h4 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h4><ul>
+<li>React 代码演示<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">    <span class="hljs-comment">// 标准模式和混杂模式的窗体滚动元素的获取</span></span><br><span class="line">    <span class="hljs-keyword">this</span>.windowEl = <span class="hljs-built_in">document</span>.scrollingElement || <span class="hljs-built_in">document</span>.documentElement</span><br><span class="line">    <span class="hljs-keyword">this</span>.titleTop = <span class="hljs-keyword">this</span>.titleRef.offsetTop</span><br><span class="line">    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'scroll'</span>, () =&gt; <span class="hljs-keyword">this</span>.wScroll())</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// 吸顶处理</span></span><br><span class="line">wScroll() &#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.windowEl.scrollTop == <span class="hljs-keyword">this</span>.titleTop) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.titleRef.classList.add(<span class="hljs-string">'fixed'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">handleScroll = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="hljs-keyword">let</span> left = e.target.scrollLeft</span><br><span class="line">   <span class="hljs-keyword">this</span>.titleRef.scrollLeft = left </span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">    监测捕获阶段的事件</span></span><br><span class="line"><span class="hljs-comment">    onScroll 这都位于React合成事件，处于冒泡阶段</span></span><br><span class="line"><span class="hljs-comment">    此处其实也可以绑定 wrap 的原生scroll事件</span></span><br><span class="line"><span class="hljs-comment">    各种阶段事件触发的顺序：捕获 -&gt; 冒泡 -&gt; 原生 addEventListener('scroll')</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">        &lt;div className=<span class="hljs-string">"title"</span> ref=&#123;ref=&gt;<span class="hljs-keyword">this</span>.titleRef=ref&#125;&gt;</span><br><span class="line">            &lt;ul className=<span class="hljs-string">"list"</span>&gt;...&lt;<span class="hljs-regexp">/ul&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;/</span>div&gt;</span><br><span class="line">        &lt;div</span><br><span class="line">            className=<span class="hljs-string">"wrap"</span></span><br><span class="line">            onScrollCapture=&#123;<span class="hljs-keyword">this</span>.captureScroll&#125;</span><br><span class="line">        &gt;</span><br><span class="line">            &lt;ul className=<span class="hljs-string">"list"</span>&gt;...&lt;<span class="hljs-regexp">/ul&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="hljs-regexp">/&gt;</span></span><br><span class="line"><span class="hljs-regexp">  );</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">------------</span></span><br><span class="line"><span class="hljs-regexp">css</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.title, .wrap &#123;</span></span><br><span class="line"><span class="hljs-regexp">    overflow: scroll;</span></span><br><span class="line"><span class="hljs-regexp">     -webkit-overflow-scrolling: touch;</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="关于使用局部滚动出现的一些问题的处理方法"><a href="#关于使用局部滚动出现的一些问题的处理方法" class="headerlink" title="关于使用局部滚动出现的一些问题的处理方法"></a>关于使用局部滚动出现的一些问题的处理方法</h4><ul>
+<li><a href="https://juejin.im/post/5c2cb488f265da61542dbc6b" target="_blank" rel="noopener">-webkit-overflow-scrolling:touch 使用的问题</a></li>
+<li><a href="http://www.alloyteam.com/2017/04/secrets-of-mobile-web-scroll-bars-and-drop-refresh/" target="_blank" rel="noopener">移动web滚动问题：scroll事件的触发时机</a></li>
+<li><a href="https://merrier.wang/mobile-scroll-events/" target="_blank" rel="noopener">scroll触发时机</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/24837233" target="_blank" rel="noopener">ios scroll 事件的问题</a></li>
+<li><a href="https://www.zhangxinxu.com/wordpress/2016/12/web-mobile-scroll-prevent-window-js-css/" target="_blank" rel="noopener">移动端弹窗时阻止body滚动</a></li>
+<li><a href="https://segmentfault.com/a/1190000017998387" target="_blank" rel="noopener">通讯录式吸顶</a></li>
+<li><a href="https://zh-hans.reactjs.org/docs/events.html#supported-events" target="_blank" rel="noopener">react合成事件，捕获阶段、冒泡阶段触发不同</a></li>
+</ul>
+
+        </div>
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/移动端/">移动端</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/05/19-10-06_hexo搭建/">
+                <span class="level-item">hexo &amp; Icarus 博客搭建总结</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<!-- 
+	作者的跨域服务器好像失效了，
+	https://github.com/imsun/gitment/issues/102
+-->
+<!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"> -->
+<!-- <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css"/>
+<script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+<script>
+	const myTheme = {
+		render(state, instance) {
+			console.log('state-->', state)
+			const container = document.createElement('div')
+			container.lang = "en-US"
+			container.className = 'gitment-container gitment-root-container'
+			container.appendChild(instance.renderHeader(state, instance))
+			container.appendChild(instance.renderEditor(state, instance))
+			container.appendChild(instance.renderComments(state, instance))
+			container.appendChild(instance.renderFooter(state, instance))
+			return container
+		},
+	}
+	var gitment = new Gitment({
+		id: '0c69a05514a4b5906ccfb00763eb2fff',
+		owner: 'hugeorange',
+		repo: 'hugeorange.github.io',
+		oauth: {
+			client_id: 'e966f4d67d8699dedd08',
+			client_secret: '7e4deaa079c3c0992cb90cf17dd9a26bb08d17d9',
+		},
+		theme: myTheme,
+	})
+	gitment.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                    
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#问题介绍">
+        <span class="has-mr-6">1</span>
+        <span>问题介绍</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#想法：">
+        <span class="has-mr-6">1.1</span>
+        <span>想法：</span>
+        </a></li><li>
+        <a class="is-flex" href="#解决方法">
+        <span class="has-mr-6">1.2</span>
+        <span>解决方法</span>
+        </a></li><li>
+        <a class="is-flex" href="#伪代码">
+        <span class="has-mr-6">1.3</span>
+        <span>伪代码</span>
+        </a></li><li>
+        <a class="is-flex" href="#关于使用局部滚动出现的一些问题的处理方法">
+        <span class="has-mr-6">1.4</span>
+        <span>关于使用局部滚动出现的一些问题的处理方法</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+        </div>
+    
+</div>
+
+                    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer" style="padding: 2rem">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <!-- <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="移动端局部滚动、标题吸顶、监听滚动" height="28">
+                
+                </a> -->
+                <p>
+                    
+                        <span id="busuanzi_container_site_uv">
+                        共<a class="pd-3" id="busuanzi_value_site_uv">0</a>个访客
+                        </span>
+                        <br>
+                    
+                    <div id="run-time">
+                        小站已运行<a class="pd-3 year"></a>年<a class="pd-3 day"></a>天<a class="pd-3 hour"></a>时<a class="pd-3 minute"></a>分<a class="pd-3 second"></a>秒
+                    </div>
+                    &copy; 
+                    2019 大桔子(^_^)
+                    <span class="with-love has-text-centered-mobile" id="animate">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                            href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                </p>
+            </div>
+
+            <!-- <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/hugeorange">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div> -->
+        </div>
+    </div>
+    <script>
+        var runTime = {
+            year: document.querySelector('#run-time .year'),
+            day: document.querySelector('#run-time .day'),
+            hour: document.querySelector('#run-time .hour'),
+            minute: document.querySelector('#run-time .minute'),
+            second: document.querySelector('#run-time .second'),
+            start: new Date("2019/10/05 15:00:00"),
+            init: function() {
+                var me = this;
+                this.calcTime()
+                setInterval(function() {
+                    var obj = me.calcTime()
+                    me.renderPage(obj)
+                }, 1000)
+            },
+            renderPage: function(obj) {
+                this.year.innerText = obj.y;
+                this.day.innerText = obj.d;
+                this.hour.innerText = obj.h;
+                this.minute.innerText = obj.m;
+                this.second.innerText = obj.s;
+            },
+            calcTime: function() {
+                var cur = new Date()
+                var diff = (cur - this.start) / 1000
+
+                var y = parseInt(diff / (365*24*60*60))
+                var d = parseInt(diff / (24*60*60) % 365)
+                var h = parseInt(diff / (60 * 60) % 24);
+                var m = parseInt(diff / 60 % 60);
+                var s = parseInt(diff % 60);
+                return {
+                    y: this.addZero(y),
+                    d: this.addZero(d),
+                    h: this.addZero(h),
+                    m: this.addZero(m),
+                    s: this.addZero(s)
+                }
+            },
+            addZero: function(i) {
+                return i < 10 ? "0" + i: i + "";
+            },
+        }
+        runTime.init()
+    </script>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
