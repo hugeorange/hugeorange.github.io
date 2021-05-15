@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>hexo &amp; Icarus 博客搭建总结 - 劝君更进一杯酒</title>
+
+
+    <meta name="description" content="hexo 博客搭建 Icarus 主题自定义修改">
+<meta name="keywords" content="hexo 博客搭建,Icarus 主题自定义修改">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo &amp; Icarus 博客搭建总结">
+<meta property="og:url" content="https://hugeorange.github.io/2019/10/05/19-10-06_hexo搭建/index.html">
+<meta property="og:site_name" content="劝君更进一杯酒">
+<meta property="og:description" content="hexo 博客搭建 Icarus 主题自定义修改">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://hugeorange.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-10-16T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo &amp; Icarus 博客搭建总结">
+<meta name="twitter:description" content="hexo 博客搭建 Icarus 主题自定义修改">
+<meta name="twitter:image" content="https://hugeorange.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/xcode.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+    
+    
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-2-column"> -->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <!-- <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="hexo &amp; Icarus 博客搭建总结" height="28">
+            
+            </a>
+        </div> -->
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+                <a class="navbar-item"
+                href="/tool">小工具</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/hugeorange">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <!-- 此处硬编码，来判断是否需要全屏，不了解 hexo 机制，不熟悉ejs模板，后期有机会优化吧 -->
+                
+                    <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal ">
+            
+                <!-- <i class="fas fa-angle-double-right"></i>hexo &amp; Icarus 博客搭建总结 -->
+                hexo &amp; Icarus 博客搭建总结
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2019-10-04T16:00:00.000Z">2019-10-05</time> -->
+                <time class="level-item has-text-grey" datetime="2019-10-04T16:00:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-10-05</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-10-16T16:00:00.000Z"><i class="far fa-calendar-check">&nbsp;</i>2019-10-17</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/技术/">技术</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/技术/hexo/">hexo</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1320 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                hexo &amp; Icarus 博客搭建总结
+            
+        </h1> -->
+        <div class="content">
+            <blockquote>
+<p>一直想把博客重新搞一搞，之前用得是next主题的，不是很好看，后来又为了学习nodejs及阿里云服务器相关知识，自己用 <code>express + mongoDB</code>搞了一个<a href="https://code-sky.cn" target="_blank" rel="noopener">小站点</a>，内容平台用 <code>react + koa2 + mongoDB</code> ，但随着阿里云 服务器快要过期了，也懒得折腾了，遂又想到了 <code>hexo</code>，并且找了一个很简洁漂亮的主题-<code>Icarus</code>，经过一番修改就有了现在的站点，该站点完全静态托管于 github</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="hexo-博客的搭建"><a href="#hexo-博客的搭建" class="headerlink" title="hexo 博客的搭建"></a>hexo 博客的搭建</h3><ul>
+<li>直接参照官网即可 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">地址</a></li>
+<li>github上创建一个和 <code>[username].github.io</code> 的repo，master 上放 <code>hexo deploy</code>的代码，我又创建了一个<code>blog</code>分支，用于存放博客源码</li>
+</ul>
+<h3 id="自定义主题选择"><a href="#自定义主题选择" class="headerlink" title="自定义主题选择"></a>自定义主题选择</h3><ul>
+<li><p>对比了好多主题最终觉得这个主题比较简洁大方 - <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p>
+</li>
+<li><p>使用时对该主题样式魔改了好多 <a href="https://github.com/hugeorange/hugeorange.github.io/tree/blog" target="_blank" rel="noopener">魔改后的代码地址-themes/icarus</a></p>
+</li>
+<li><p>想替换提供基础资源的cdn呢，发现该主题只能替换cdn域名，后面的参数都是硬编码的，故未替换</p>
+</li>
+<li><p>统计网站<code>uv、pv</code>用的主题自带的 <a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">不蒜子</a>，只要将<code>_config.yml</code>里面的<code>busuanzi: true</code>，发现一个问题当用手机访问时，连续刷新会造成 <code>uv</code> 统计不准确，还没找到原因</p>
+</li>
+<li><p>评论插件用的主题自带的 <code>gitment</code>，需要配置一下参数</p>
+<figure class="highlight bash hljs"><figcaption><span>gitment 配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">comment:</span><br><span class="line">    <span class="hljs-comment"># Name of the comment plugin</span></span><br><span class="line">    <span class="hljs-built_in">type</span>: gitment</span><br><span class="line">    owner: hugeorange         <span class="hljs-comment"># 账户名称</span></span><br><span class="line">    repo: hugeorange.github.io <span class="hljs-comment"># 评论存储的仓库，评论数据存储到该仓库内的issue里</span></span><br><span class="line">    client_id: [your client_id] <span class="hljs-comment"># 一下两个密码需要在github里注册OAuth Application</span></span><br><span class="line">    client_secret: [your client_secret] </span><br><span class="line"></span><br><span class="line">    注册地址：https://github.com/settings/applications/new</span><br><span class="line">    注册关键字说明：https://imsun.net/posts/gitment-introduction/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用过程中发现一个问题，当当前文章没有评论数据，会返回一个 <code>Error: Comments Not Initialized</code>，或者显示一个<code>Initialize Comments</code>的按钮，翻了一下该项目的issue暂时未找到原因</li>
+<li>另外在 <code>火狐 safari</code> 会报跨域问题 <code>已拦截跨源请求：同源策略禁止读取位于 https://gh-oauth.imsun.net/ 的远程资源。（原因：CORS 请求未能成功）。[详细了解]</code>，<code>chrome</code>是好的， 因为 github 的服务不允许跨域访问，所以作者搞了一个简单的代理服务，目前还不清楚是什么问题，<a href="https://github.com/imsun/gitment#why-does-gitment-send-a-request-to-gh-oauthimsunnet" target="_blank" rel="noopener">gh-oauth.imsun.net代理服务</a></li>
+<li><code>10-08 日更新：</code>今天看到 gitment仓库的里面的<a href="https://github.com/imsun/gitment/issues/102" target="_blank" rel="noopener">issue</a> 原来是作者用来做跨域的认证服务证书到期了（奇怪的是这个服务偶尔好偶尔坏），按照 issue 里面的说法，将 js、css 文件替换掉了，然后访问发现使用了一个叫做 <code>HeroKu</code> 的免费云服务替代了作者的服务</li>
+</ul>
+</li>
+<li><p>魔改底部增加网站运行时间功能 <a href="https://github.com/hugeorange/hugeorange.github.io/blob/blog/themes/icarus/layout/common/footer.ejs" target="_blank" rel="noopener">代码地址</a></p>
+</li>
+</ul>
+<h3 id="Icarus-增加两个菜单-关于、工具"><a href="#Icarus-增加两个菜单-关于、工具" class="headerlink" title="Icarus 增加两个菜单-关于、工具"></a>Icarus 增加两个菜单-关于、工具</h3><ul>
+<li>关于页面排版布局和其他页面一致，只需要在增加 <code>layout/about.ejs</code>、 <code>includes/generator/about.js</code> 并在入口 <code>scripts/index.js</code> 增加响应入口即可</li>
+<li>小工具页面我不想要侧边 <code>widget</code> 了，初始时想着能在 <code>tool.ejs</code> 这个页面里做些处理就ok，但事实并非我想的这么简单，hexo用的是 <code>ejs</code> 模板，入口是 <code>layout.ejs</code>，不知道为什么我在这个文件里拿不到 <code>generator/tool.js</code>里面的声明的变量，但是可以拿到当前路径的 <code>path</code> 变量，由于对 hexo 和 ejs 都不怎么了解，所以采取了以下硬编码的临时方案，以后再进行优化  <figure class="highlight html hljs"><figcaption><span>layout/layout.ejs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"columns"</span>&gt;</span></span><br><span class="line">            <span class="hljs-comment">&lt;!-- 此处硬编码，来判断是否需要全屏，不了解 hexo 机制，不熟悉ejs模板，后期有机会优化吧 --&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> <span class="hljs-attr">if</span> (<span class="hljs-attr">path</span> !== <span class="hljs-string">'tool/index.html'</span>) &#123; %&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column &lt;%= main_column_class() %&gt; has-order-2 column-main"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">body</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">_partial</span>('<span class="hljs-attr">common</span>/<span class="hljs-attr">widget</span>', &#123; <span class="hljs-attr">position:</span> '<span class="hljs-attr">left</span>' &#125;) %&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">_partial</span>('<span class="hljs-attr">common</span>/<span class="hljs-attr">widget</span>', &#123; <span class="hljs-attr">position:</span> '<span class="hljs-attr">right</span>' &#125;) %&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> &#125; <span class="hljs-attr">else</span> &#123; %&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column column-main"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">body</span> %&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">path</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> &#125; %&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="配置相关"><a href="#配置相关" class="headerlink" title="配置相关"></a>配置相关</h3><ul>
+<li>update: 2019-10-17 将资源部署到 codeing ，并用自己的域名来访问站点，需要在阿里云域名解析后天配置域名解析指向coding的服务。<a href="https://blog.csdn.net/qq_36759224/article/details/100879609" target="_blank" rel="noopener">参考</a>  <a href="https://blog.csdn.net/qq_36759224/article/details/100899489" target="_blank" rel="noopener">百度seo处理</a></li>
+<li><ul>
+<li>把github hugeorange.github.io 仓库的 deploy 分支作为部署代码的分支，master 作为源代码分支（失败了，好像hexo 必须部署到github 的master分支上）<h3 id="hexo-相关的命令"><a href="#hexo-相关的命令" class="headerlink" title="hexo 相关的命令"></a>hexo 相关的命令</h3></li>
+</ul>
+</li>
+<li>每次 <code>hexo deploy</code> 的时候github的 repo 的master的提交历史都会被重写，这里有一个<a href="https://qiwihui.com/qiwihui-blog-50/" target="_blank" rel="noopener">解释</a>  </li>
+</ul>
+<h3 id="主题魔改-参考"><a href="#主题魔改-参考" class="headerlink" title="主题魔改-参考"></a>主题魔改-参考</h3><ul>
+<li><a href="https://www.alphalxy.com/2019/03/customize-icarus/#more" target="_blank" rel="noopener">alphalxy</a></li>
+<li><a href="https://verbf.github.io/post/deeplearning-ai-4-week-4/" target="_blank" rel="noopener">xxs</a></li>
+<li><a href="http://yearito.cn/about/" target="_blank" rel="noopener">yearito</a></li>
+<li><a href="https://www.zhihu.com/question/24422335/answer/667475744" target="_blank" rel="noopener">知乎讨论</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">官方文档-写作</a>、 <a href="http://yearito.cn/posts/hexo-writing-skills.html" target="_blank" rel="noopener">yearito-写作</a> –</li>
+</ul>
+
+        </div>
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/hexo/">hexo</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/27/19-10-27_移动端局部滚动/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">移动端局部滚动、标题吸顶、监听滚动</span>
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<!-- 
+	作者的跨域服务器好像失效了，
+	https://github.com/imsun/gitment/issues/102
+-->
+<!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"> -->
+<!-- <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css"/>
+<script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+<script>
+	const myTheme = {
+		render(state, instance) {
+			console.log('state-->', state)
+			const container = document.createElement('div')
+			container.lang = "en-US"
+			container.className = 'gitment-container gitment-root-container'
+			container.appendChild(instance.renderHeader(state, instance))
+			container.appendChild(instance.renderEditor(state, instance))
+			container.appendChild(instance.renderComments(state, instance))
+			container.appendChild(instance.renderFooter(state, instance))
+			return container
+		},
+	}
+	var gitment = new Gitment({
+		id: '9b37b557a1f8f0e49f79315c0f4e23b6',
+		owner: 'hugeorange',
+		repo: 'hugeorange.github.io',
+		oauth: {
+			client_id: 'e966f4d67d8699dedd08',
+			client_secret: '7e4deaa079c3c0992cb90cf17dd9a26bb08d17d9',
+		},
+		theme: myTheme,
+	})
+	gitment.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                    
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#hexo-博客的搭建">
+        <span class="has-mr-6">1</span>
+        <span>hexo 博客的搭建</span>
+        </a></li><li>
+        <a class="is-flex" href="#自定义主题选择">
+        <span class="has-mr-6">2</span>
+        <span>自定义主题选择</span>
+        </a></li><li>
+        <a class="is-flex" href="#Icarus-增加两个菜单-关于、工具">
+        <span class="has-mr-6">3</span>
+        <span>Icarus 增加两个菜单-关于、工具</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置相关">
+        <span class="has-mr-6">4</span>
+        <span>配置相关</span>
+        </a></li><li>
+        <a class="is-flex" href="#hexo-相关的命令">
+        <span class="has-mr-6">5</span>
+        <span>hexo 相关的命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#主题魔改-参考">
+        <span class="has-mr-6">6</span>
+        <span>主题魔改-参考</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+        </div>
+    
+</div>
+
+                    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer" style="padding: 2rem">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <!-- <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="hexo &amp; Icarus 博客搭建总结" height="28">
+                
+                </a> -->
+                <p>
+                    
+                        <span id="busuanzi_container_site_uv">
+                        共<a class="pd-3" id="busuanzi_value_site_uv">0</a>个访客
+                        </span>
+                        <br>
+                    
+                    <div id="run-time">
+                        小站已运行<a class="pd-3 year"></a>年<a class="pd-3 day"></a>天<a class="pd-3 hour"></a>时<a class="pd-3 minute"></a>分<a class="pd-3 second"></a>秒
+                    </div>
+                    &copy; 
+                    2021 大桔子(^_^)
+                    <span class="with-love has-text-centered-mobile" id="animate">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                            href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                </p>
+            </div>
+
+            <!-- <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/hugeorange">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div> -->
+        </div>
+    </div>
+    <script>
+        var runTime = {
+            year: document.querySelector('#run-time .year'),
+            day: document.querySelector('#run-time .day'),
+            hour: document.querySelector('#run-time .hour'),
+            minute: document.querySelector('#run-time .minute'),
+            second: document.querySelector('#run-time .second'),
+            start: new Date("2019/10/05 15:00:00"),
+            init: function() {
+                var me = this;
+                this.calcTime()
+                setInterval(function() {
+                    var obj = me.calcTime()
+                    me.renderPage(obj)
+                }, 1000)
+            },
+            renderPage: function(obj) {
+                this.year.innerText = obj.y;
+                this.day.innerText = obj.d;
+                this.hour.innerText = obj.h;
+                this.minute.innerText = obj.m;
+                this.second.innerText = obj.s;
+            },
+            calcTime: function() {
+                var cur = new Date()
+                var diff = (cur - this.start) / 1000
+
+                var y = parseInt(diff / (365*24*60*60))
+                var d = parseInt(diff / (24*60*60) % 365)
+                var h = parseInt(diff / (60 * 60) % 24);
+                var m = parseInt(diff / 60 % 60);
+                var s = parseInt(diff % 60);
+                return {
+                    y: this.addZero(y),
+                    d: this.addZero(d),
+                    h: this.addZero(h),
+                    m: this.addZero(m),
+                    s: this.addZero(s)
+                }
+            },
+            addZero: function(i) {
+                return i < 10 ? "0" + i: i + "";
+            },
+        }
+        runTime.init()
+    </script>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

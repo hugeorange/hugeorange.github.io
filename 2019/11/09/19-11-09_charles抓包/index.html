@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>charles 抓包 - 劝君更进一杯酒</title>
+
+
+    <meta name="description" content="charles 抓包 charles 破解">
+<meta name="keywords" content="抓包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="charles 抓包">
+<meta property="og:url" content="https://hugeorange.github.io/2019/11/09/19-11-09_charles抓包/index.html">
+<meta property="og:site_name" content="劝君更进一杯酒">
+<meta property="og:description" content="charles 抓包 charles 破解">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://hugeorange.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-11-08T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="charles 抓包">
+<meta name="twitter:description" content="charles 抓包 charles 破解">
+<meta name="twitter:image" content="https://hugeorange.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/xcode.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+    
+    
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-2-column"> -->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <!-- <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="charles 抓包" height="28">
+            
+            </a>
+        </div> -->
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+                <a class="navbar-item"
+                href="/tool">小工具</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/hugeorange">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <!-- 此处硬编码，来判断是否需要全屏，不了解 hexo 机制，不熟悉ejs模板，后期有机会优化吧 -->
+                
+                    <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal ">
+            
+                <!-- <i class="fas fa-angle-double-right"></i>charles 抓包 -->
+                charles 抓包
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2019-11-08T16:00:00.000Z">2019-11-09</time> -->
+                <time class="level-item has-text-grey" datetime="2019-11-08T16:00:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-11-09</time>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/技术/">技术</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/技术/移动端/">移动端</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 477 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                charles 抓包
+            
+        </h1> -->
+        <div class="content">
+            <blockquote>
+<p>开发 hybird app 时，需要用到 charles 抓包工具，来分析网络请求，记录下安装配置的过程，以免日后忘记</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="安装、破解（系统环境：mac）"><a href="#安装、破解（系统环境：mac）" class="headerlink" title="安装、破解（系统环境：mac）"></a>安装、破解（系统环境：mac）</h2><ul>
+<li><a href="https://www.charlesproxy.com/" target="_blank" rel="noopener">下载地址</a></li>
+<li><a href="https://www.charles.ren/" target="_blank" rel="noopener">破解程序</a>、<a href="https://blog.csdn.net/qq_25821067/article/details/79848589" target="_blank" rel="noopener">csdn上的大佬</a>  - 感谢大佬们的无私奉献。<!-- 备用注册码： Registered Name: https://zhile.io  License Key: 48891cf209c6d32bf4 -->
+
+</li>
+</ul>
+<h2 id="配置-电脑安装证书并信任、ios安装证书并信任"><a href="#配置-电脑安装证书并信任、ios安装证书并信任" class="headerlink" title="配置 (电脑安装证书并信任、ios安装证书并信任)"></a>配置 (电脑安装证书并信任、ios安装证书并信任)</h2><ul>
+<li>电脑端：启动后会自动帮我开启代理即勾选 <code>Proxy -&gt; macOS Proxy</code>（如未自动勾选，请自行手动勾选），然后在电脑上安装证书，然后在<code>钥匙串中信任该证书</code> - 如下图所示，这样就可以抓取电脑上的所有网络请求了（如果发现未能成功代理，请检查本机网络设置里面的<code>高级 -&gt; 代理</code>，注意：可能回和翻墙代理产生冲突）</li>
+<li><img src="http://img.code-sky.cn/charles-1.png"></li>
+<li>手机端（ios）：<ul>
+<li>首先确保电脑和手机连的同一 wifi，然后选择所连的wifi -&gt; 配置代理:选择 手动 -&gt; 填写服务器（即电脑 ip地址）-&gt; 端口号(charles默认 8888) </li>
+<li>手机端安装证书，点击上图所示的 <code>install root certification in mobile device</code>，弹出下图</li>
+<li><img src="http://img.code-sky.cn/WX20191109-154105@2x.png"></li>
+<li>访问上图所示地址下载安装证书: 安装位置 <code>设置 -&gt; 通用 -&gt; 描述文件</code></li>
+<li>信任证书：<code>设置 -&gt; 通用 -&gt; 关于本机 -&gt; 证书信任设置</code></li>
+<li>完成以上步骤即可通过 charles 抓取 hybird app 上的网络请求了</li>
+</ul>
+</li>
+</ul>
+<h2 id="charles-使用技巧"><a href="#charles-使用技巧" class="headerlink" title="charles 使用技巧"></a>charles 使用技巧</h2><ul>
+<li>现在一般都是 https 请求了，charles 抓取到的 https 请求都是乱码，需要在该请求上右键点击 <code>Enable SSL Proxy</code>，再重新请求就可以明文显示https请求了</li>
+<li>未完待续…</li>
+</ul>
+
+        </div>
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/移动端/">移动端</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/04/20-05-04_讲话的艺术/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">生活的态度，讲话的艺术</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/11/09/19-11-09_装机必备/">
+                <span class="level-item">环境清单</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<!-- 
+	作者的跨域服务器好像失效了，
+	https://github.com/imsun/gitment/issues/102
+-->
+<!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"> -->
+<!-- <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css"/>
+<script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+<script>
+	const myTheme = {
+		render(state, instance) {
+			console.log('state-->', state)
+			const container = document.createElement('div')
+			container.lang = "en-US"
+			container.className = 'gitment-container gitment-root-container'
+			container.appendChild(instance.renderHeader(state, instance))
+			container.appendChild(instance.renderEditor(state, instance))
+			container.appendChild(instance.renderComments(state, instance))
+			container.appendChild(instance.renderFooter(state, instance))
+			return container
+		},
+	}
+	var gitment = new Gitment({
+		id: '7331269eba587bff203c8c3833a178c2',
+		owner: 'hugeorange',
+		repo: 'hugeorange.github.io',
+		oauth: {
+			client_id: 'e966f4d67d8699dedd08',
+			client_secret: '7e4deaa079c3c0992cb90cf17dd9a26bb08d17d9',
+		},
+		theme: myTheme,
+	})
+	gitment.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                    
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#安装、破解（系统环境：mac）">
+        <span class="has-mr-6">1</span>
+        <span>安装、破解（系统环境：mac）</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置-电脑安装证书并信任、ios安装证书并信任">
+        <span class="has-mr-6">2</span>
+        <span>配置 (电脑安装证书并信任、ios安装证书并信任)</span>
+        </a></li><li>
+        <a class="is-flex" href="#charles-使用技巧">
+        <span class="has-mr-6">3</span>
+        <span>charles 使用技巧</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+        </div>
+    
+</div>
+
+                    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer" style="padding: 2rem">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <!-- <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="charles 抓包" height="28">
+                
+                </a> -->
+                <p>
+                    
+                        <span id="busuanzi_container_site_uv">
+                        共<a class="pd-3" id="busuanzi_value_site_uv">0</a>个访客
+                        </span>
+                        <br>
+                    
+                    <div id="run-time">
+                        小站已运行<a class="pd-3 year"></a>年<a class="pd-3 day"></a>天<a class="pd-3 hour"></a>时<a class="pd-3 minute"></a>分<a class="pd-3 second"></a>秒
+                    </div>
+                    &copy; 
+                    2021 大桔子(^_^)
+                    <span class="with-love has-text-centered-mobile" id="animate">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                            href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                </p>
+            </div>
+
+            <!-- <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/hugeorange">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div> -->
+        </div>
+    </div>
+    <script>
+        var runTime = {
+            year: document.querySelector('#run-time .year'),
+            day: document.querySelector('#run-time .day'),
+            hour: document.querySelector('#run-time .hour'),
+            minute: document.querySelector('#run-time .minute'),
+            second: document.querySelector('#run-time .second'),
+            start: new Date("2019/10/05 15:00:00"),
+            init: function() {
+                var me = this;
+                this.calcTime()
+                setInterval(function() {
+                    var obj = me.calcTime()
+                    me.renderPage(obj)
+                }, 1000)
+            },
+            renderPage: function(obj) {
+                this.year.innerText = obj.y;
+                this.day.innerText = obj.d;
+                this.hour.innerText = obj.h;
+                this.minute.innerText = obj.m;
+                this.second.innerText = obj.s;
+            },
+            calcTime: function() {
+                var cur = new Date()
+                var diff = (cur - this.start) / 1000
+
+                var y = parseInt(diff / (365*24*60*60))
+                var d = parseInt(diff / (24*60*60) % 365)
+                var h = parseInt(diff / (60 * 60) % 24);
+                var m = parseInt(diff / 60 % 60);
+                var s = parseInt(diff % 60);
+                return {
+                    y: this.addZero(y),
+                    d: this.addZero(d),
+                    h: this.addZero(h),
+                    m: this.addZero(m),
+                    s: this.addZero(s)
+                }
+            },
+            addZero: function(i) {
+                return i < 10 ? "0" + i: i + "";
+            },
+        }
+        runTime.init()
+    </script>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
