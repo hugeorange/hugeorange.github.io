@@ -45,11 +45,11 @@
     <button class="go-btn">确定</button>
     <div class="img-wrapper">
         <div class="origin">
-            <div>原图<span class="size"></span> KB</div>
+            <div>原图<span class="size"></span></div>
             <img src="" alt="">
         </div>
         <div class="compress">
-            <div>处理后的图片<span class="size"></span> KB</div>
+            <div>处理后的图片<span class="size"></span></div>
             <img src="" alt="">
         </div>
     </div>
@@ -66,14 +66,20 @@ class CompressImg {
     // 供实例调用方法，返回裁剪压缩后的图片: base64 & blob
     excuteCompressImg() {
         let img
+        let width = this.targetW
+        let height = this.targetH
         if (!this.targetW && !this.targetH)  {
             img = this.scaleCompress()
+            width = this.getScaleWH()?.w;
+            height = this.getScaleWH()?.h;
         } else {
             img = this.drawImage()
         }
         return {
             base64: img,
-            blob: this.createBlob(img)
+            blob: this.createBlob(img),
+            width,
+            height
         }
     }
     // 将base64字符出转成blob二级制格式利用 formData ajax 传到后台
@@ -88,19 +94,23 @@ class CompressImg {
         return blob
     }
 
-    // 不进行裁剪，直接缩放压缩处理
-    scaleCompress() {
-        const canvas = document.createElement('canvas')
-        const ctx = canvas.getContext('2d')
+
+    // 获取不裁剪，直接进行缩放处理的图片尺寸
+    getScaleWH = () => {
         let w = this.file.width
         let h = this.file.height
-        console.log('1-->', w, h)
         if (w > this.scale) {
             h = this.scale/w * h
             w = this.scale
             
         }
-        console.log('2-->', w, h)
+        return { w, h }
+    }
+    // 不进行裁剪，直接缩放压缩处理
+    scaleCompress() {
+        const canvas = document.createElement('canvas')
+        const ctx = canvas.getContext('2d')
+        const { w, h } = this.getScaleWH()
         canvas.width = w
         canvas.height = h
         canvas.style.width = w / 2 + 'px'
@@ -258,6 +268,7 @@ var  imgObj = {
         this.dom.imgBtn.onchange = function(e) {
             me.file = e.target.files[0]
             me.previewOrigin(me.file)
+            me.initPreviewCompress()
         }
     },
     goCompress() {
@@ -295,15 +306,43 @@ var  imgObj = {
         else return true
     },
     previewOrigin(file) {
-        var oSize = file.size
+        var oSize = (file.size/1024).toFixed(2)
         var oImg = URL.createObjectURL(file)
-        $('.origin .size').innerText = (oSize/1024).toFixed(2)
+        
+        $('.origin .size').innerText = oSize
         $('.origin img').src = oImg
+        $('.origin img').onload = function () {
+            var wh = ` KB； 宽：${this.naturalWidth} 高：${this.naturalHeight}`
+            $('.origin .size').innerText = oSize + wh
+            // console.log('直接img加载===>', this, this.naturalWidth, this.naturalHeight)
+        }
+
+        // var reader = new FileReader()
+        // reader.readAsDataURL(file)
+        // reader.onload = function(e) {
+        //     var img = new Image()
+        //     img.src = e.target.result
+        //     img.onload = function() {
+                    // 此种形式获取图片文件宽高和将其插入到 dom 中，通过 naturalWidth 获取尺寸一致
+        //         console.log('FileReader形式获取宽高==>', this, this.width, this.height)
+        //     }
+        //     img.onerror = function() {
+        //         reject('图片裁剪压缩失败')
+        //     }
+        // }
     },
+
+    // 初始化预览压缩后的图片
+    initPreviewCompress() {
+        $('.compress .size').innerText = ""
+        $('.compress img').src = ""
+    },
+
     previewCompress(file) {
-        var cSize = file.blob.size
+        var cSize = (file.blob.size/1024).toFixed(2)
+        console.log('====>', file)
         var cImg = file.base64
-        $('.compress .size').innerText = (cSize/1024).toFixed(2)
+        $('.compress .size').innerText = ` ${cSize}KB；宽：${file.width} 高：${file.height}`
         $('.compress img').src = cImg
     },
     compressImg(file, obj) {
